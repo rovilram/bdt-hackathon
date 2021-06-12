@@ -11,7 +11,6 @@ const dbOptionsMongo = {
   username: process.env.MONGO_USER || '',
   password: process.env.MONGO_PASS || '',
   database: process.env.MONGO_DB || 'test',
-  //synchronize: true,
   useUnifiedTopology: true,
   entities: [
     // require("./entity/Post"),
@@ -24,23 +23,23 @@ const dbOptionsPosgre = {
   host: process.env.POSTGRESQL_HOST || 'localhost',
   port: process.env.POSTGRESQL_PORT || 5432,
   username: process.env.POSTGRESQL_USER || '',
-  //el 2º 1 es 2
   password: process.env.POSTGRESQL_PASS || '',
   database: process.env.POSTGRESQL_DB || 'test',
   ssl: {
     rejectUnauthorized: false,
   },
-  //synchronize: true,
   entities: [
     // require("./entity/Post"),
     // require("./entity/Category")
   ],
 };
 
-let dbOptions = {};
+const dbSelector = {
+  mongodb: dbOptionsMongo,
+  postgresql: dbOptionsPosgre,
+};
 
-if (process.env.DB === 'mongodb') dbOptions = dbOptionsMongo;
-else if (process.env.DB === 'postgresql') dbOptions = dbOptionsPosgre;
+const dbOptions = dbSelector[process.env.DB] || {};
 
 const dbConnection = typeorm
   .createConnection(dbOptions)
