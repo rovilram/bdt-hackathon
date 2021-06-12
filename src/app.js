@@ -10,6 +10,7 @@ const helmet = require('helmet');
 const routes = require('./routes/routes');
 const apiRoutes = require('./routes/apiRoutes');
 //const passport = require('./app/passport');
+const dbConnection = require('./app/database')
 
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const notFound404 = require('./middlewares/notFound404');
