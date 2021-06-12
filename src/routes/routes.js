@@ -1,6 +1,6 @@
 const Router = require('express');
 const passport = require('passport');
-const { addUser } = require('../api/user/controller');
+//const { addUser } = require('../api/user/controller-');
 
 const apiRoutes = require('./apiRoutes');
 

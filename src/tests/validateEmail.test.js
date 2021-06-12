@@ -19,4 +19,3 @@ test('undefined is not valid email', () => {
   const validEmail = validateEmail();
   expect(validEmail).toBe(false);
 });
-
