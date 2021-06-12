@@ -1,6 +1,7 @@
 const Router = require('express');
 const passport = require('passport');
-//const { addUser } = require('../api/user/controller-');
+const { addUser } = require('../api/user/controller');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 const apiRoutes = require('./apiRoutes');
 
@@ -11,18 +12,13 @@ router.get('/', (req, res) => {
   res.send("Hello World! I'm a API server");
 });
 
-
 /* ST10: POST /register
 Description: Registra al usuario y lo, guarda la sesión usando una estratégia local y envía la información del usuario. En este proceso a través de la función TASK3 para verficiar el correo introducido. */
-router.route('/register').post((req, res) => {
-  res.send('Registrando usuario');
-});
+router.route('/register').post(addUser, authMiddleware);
 
 /* ST11: POST /login
-Description: Guarda la sesión usando una estratégia local y envía la información al usuario */ 
-router.route('/login').post((req, res) => {
-  res.send('Logeando usuario');
-});
+Description: Guarda la sesión usando una estratégia local y envía la información al usuario */
+router.post('/login', authMiddleware);
 
 /* 
 ST12 post /notification
@@ -31,28 +27,20 @@ router.route('/notification').post((req, res) => {
   res.send('Enviando mensaje');
 });
 
-
-
-/* router.post('/login', (req, res, next) => {
-  passport.authenticate('local', (err, user, info) => {
-    if (err) throw err;
-    if (!user)
-      next({
-        OK: 0,
-        status: 403,
-        message: 'Usuario / contraseña incorrectos',
-      });
-    else {
-      req.logIn(user, (err) => {
-        if (err) throw err;
-        res.send({ OK: 1, message: 'Usuario logeado' });
-        console.log(req.user);
-      });
-    }
-  })(req, res, next);
+router.get('/testauth', (req, res, next) => {
+  if (req.isAuthenticated())
+    res.send({
+      OK: 1,
+      message: 'Usuario está autenticado',
+    });
+  else {
+    console.log(req.headers);
+    console.log('error de autentiacion');
+    next({
+      status: 404,
+      message: 'usuario no autenticado',
+    });
+  }
 });
-
-router.post('/register', addUser); */
-
 
 module.exports = router;

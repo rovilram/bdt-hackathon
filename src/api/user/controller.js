@@ -5,11 +5,8 @@ const { addUserDB, getUserDB, delUserDB, updateUserDB } = require('./helpers');
 exports.addUser = (req, res, next) => {
   addUserDB(req.body)
     .then((response) => {
-      res.send({
-        OK: 1,
-        message: 'usuario añadido',
-        id: response.id,
-      });
+      req.response = response;
+      next();
     })
     .catch((error) => {
       next({
@@ -51,7 +48,7 @@ exports.updateUser = async (req, res, next) => {
 
   updateUserDB(id, req.body)
     .then((response) => {
-      console.log(response)
+      console.log(response);
       if (response) {
         res.send({
           OK: 1,
@@ -98,4 +95,3 @@ exports.delUser = async (req, res, next) => {
       }),
     );
 };
-

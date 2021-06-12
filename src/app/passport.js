@@ -1,6 +1,6 @@
 const passport = require('passport');
 
-const Users = require('../api/user/model-');
+const Users = require('../api/user/model');
 
 
 const localStrategy = require('./passportStrategies/localStrategy')

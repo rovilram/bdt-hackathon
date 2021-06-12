@@ -2,6 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
+const correctMiddleware = require('../../middlewares/correctMiddleware')
+
 const {
   addUser,
   getUser,
@@ -26,7 +28,7 @@ router
 
 /* ST4: POST /user
   Descripción: Crea un usuario */
-router.route('/').post(addUser);
+router.route('/').post(addUser, correctMiddleware);
 
 /* ST6: GET /user/:id/github
 Description: Devuele los datos de usuario del modelo de githubUser entrando dándo el nombre de usuario github */

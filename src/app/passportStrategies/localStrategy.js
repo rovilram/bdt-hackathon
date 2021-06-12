@@ -1,6 +1,6 @@
 const localStrategy = require('passport-local').Strategy;
 
-const Users = require('../../api/user/model-');
+const Users = require('../../api/user/model');
 const SHA256 = require('crypto-js/sha256');
 
 const strategy = new localStrategy(
