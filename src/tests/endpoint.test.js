@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const connection = require('../app/database');
 const app = require('../app');
 const server = require('../bin/www');
 const supertest = require('supertest');
@@ -80,5 +80,5 @@ describe('country endpoints are working', () => {
 
 afterAll(() => {
   server.close();
-  mongoose.connection.close();
+  connection.close();
 });

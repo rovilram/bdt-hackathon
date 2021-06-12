@@ -51,25 +51,12 @@ const dbConnection = typeorm
   })
   .catch((error) => console.error('Error al conectar la base de datos', error));
 
-/* mongoose
-  .connect(DB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
-  .then(() => {
-    console.info('Connected to DB!');
-  })
-  .catch((err) => console.error('DB conection error:', err));
- */
 //  desconecta la base de datos cuando salimos de node con ctrl+c
-process.on('SIGINT', () => {
-  dbConnection.close(() => {
-    //   // eslint-disable-next-line no-console
-    //   console.info('> mongoose succesfully disconnected!');
-    //   process.exit(0);
-  });
+const connection = typeorm.getConnection();
+process.on('SIGINT', async () => {
+  await connection.close();
+  console.log('cerrando servidores');
+  !connection.isConnected && process.exit(0);
 });
 
-module.exports = dbConnection;
+module.exports = connection;
