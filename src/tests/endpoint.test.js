@@ -1,4 +1,4 @@
-const connection = require('../app/database');
+const mongoose = require('../app/database');
 const app = require('../app');
 const server = require('../bin/www');
 const supertest = require('supertest');
@@ -26,6 +26,7 @@ describe('Auth endpoints are working', () => {
 describe('User endpoints are working', () => {
   test('get user endpoint', async () => {
     const id = 100;
+
 
     await api.get(`/user/${id}`).expect(200);
   });
@@ -57,7 +58,6 @@ describe('User endpoints are working', () => {
   });
 });
 
-
 describe('github endpoints are working', () => {
   test('add github username to user', async () => {
     const username = 'testUser';
@@ -80,5 +80,5 @@ describe('country endpoints are working', () => {
 
 afterAll(() => {
   server.close();
-  connection.close();
+  mongoose.connection.close();
 });
