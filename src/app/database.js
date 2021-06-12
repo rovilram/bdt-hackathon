@@ -13,7 +13,7 @@ mongoose
     useFindAndModify: false,
   })
   .then(() => {
-    console.info('Connected to DB!', DB_URI);
+    console.info('Connected to DB!');
   })
   .catch((err) => console.error('DB conection error:', err));
 

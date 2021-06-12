@@ -9,7 +9,6 @@ const helmet = require('helmet');
 
 const routes = require('./routes/routes');
 const apiRoutes = require('./routes/apiRoutes');
-
 const passport = require('./app/passport');
 
 const errorMiddleware = require('./middlewares/errorMiddleware');
@@ -36,12 +35,13 @@ app.use(cookieParser(secretKey));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// endpoints
+// Public endpoints
+app.use('/', apiRoutes);
 
-app.use('/', routes);
+// Private endpoints
 app.use(
-  '/api',
-  (req, res, next) => {
+  '/',
+  /* (req, res, next) => {
     if (req.isAuthenticated()) next();
     else {
       console.log(req.headers);
@@ -51,9 +51,10 @@ app.use(
         message: 'no estás logeado',
       });
     }
-  },
-  apiRoutes,
+  }, */
+  routes,
 );
+
 
 app.use(notFound404);
 app.use(errorMiddleware);
