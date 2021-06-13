@@ -2,14 +2,15 @@ const express = require('express');
 
 const router = express.Router();
 
-const correctMiddleware = require('../../middlewares/correctMiddleware')
+const correctMiddleware = require('../../middlewares/correctMiddleware');
 
 const {
   addUser,
   getUser,
   updateUser,
   delUser,
-  //   getUsers,
+  getGithub,
+  getGitlab,
 } = require('./controller');
 
 router
@@ -32,14 +33,10 @@ router.route('/').post(addUser, correctMiddleware);
 
 /* ST6: GET /user/:id/github
 Description: Devuele los datos de usuario del modelo de githubUser entrando dándo el nombre de usuario github */
-router.route('/:id/github').get((req, res) => {
-  res.send(`Listar datos github del usuario ${req.params.id}`);
-});
+router.route('/:id/github').get(getGithub);
 
 /* ST6 BIS: GET /user/:id/gitlab
 Description: Devuele los datos de usuario del modelo de gitlabUser entrando dándo el nombre de usuario github */
-router.route('/:id/gitlab').get((req, res) => {
-  res.send(`Listar datos gitlab del usuario ${req.params.id}`);
-});
+router.route('/:id/gitlab').get(getGitlab);
 
 module.exports = router;

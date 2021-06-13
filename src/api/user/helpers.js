@@ -41,7 +41,51 @@ exports.updateUserDB = async (id, userData) => {
   };
 
   try {
-    const result = await User.findOneAndUpdate({ id }, userData, options);
+    const result = await User.findOneAndReplace({ id }, userData, options);
+    return result;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+exports.addGithubToUser = async (id, idGitHub) => {
+  console.log(id, idGitHub);
+  const options = {
+    new: true,
+    projection: { _id: 0, password: 0, __v: 0 },
+  };
+
+  try {
+    const result = await User.findOneAndUpdate(
+      { id },
+      {
+        githubUserID: idGitHub,
+      },
+      options,
+    );
+    return result;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+exports.addGitlabToUser = async (id, idGitlab) => {
+  console.log(id, idGitlab);
+  const options = {
+    new: true,
+    projection: { _id: 0, password: 0, __v: 0 },
+  };
+
+  try {
+    const result = await User.findOneAndUpdate(
+      { id },
+      {
+        gitlabUserID: idGitlab,
+      },
+      options,
+    );
     return result;
   } catch (error) {
     throw error;
