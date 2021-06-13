@@ -99,7 +99,8 @@ Se implementa tanto para correo real (gmail), como para un fake-smpt-server como
 
 
 **DOD-1:** Se hace deploy en heroku: https://dbthackathon.herokuapp.com/
-**DOD-2:** Se hace testing de los endpoint y de alguna de las funciones empleando *jest* y *supertest*. Además se prueba la aplicación tanto en local, como en el despliegue usando *postman*. Los archivos de postman se pueden encontrar en la carpeta *docs*
+**DOD-2:** Se hace testing de los endpoint y de alguna de las funciones empleando *jest* y *supertest*. Al final no me da tiempo a arreglar los test de los endpoint privados.
+ Además se prueba la aplicación tanto en local, como en el despliegue usando *postman*. Los archivos de postman se pueden encontrar en la carpeta *docs*
 **DOD-3:** La apliación se ha desarrollado en javascript con nodeJS.
 
 ## INSTALACIÓN
