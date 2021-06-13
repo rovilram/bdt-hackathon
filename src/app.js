@@ -35,6 +35,8 @@ app.use(cookieParser(secretKey));
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
 // Public endpoints
 app.use('/', routes);
 

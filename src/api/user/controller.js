@@ -3,8 +3,16 @@ const User = require('./model');
 const { addUserDB, getUserDB, delUserDB, updateUserDB } = require('./helpers');
 const { getGithubUser } = require('../githubUser/helpers');
 const { getGitlabUser } = require('../gitlabUser/helpers');
+const { mailboxlayer } = require('../../app/mailboxlayer');
 
-exports.addUser = (req, res, next) => {
+exports.addUser = async (req, res, next) => {
+  const emailScore = await mailboxlayer(req.body.email);
+  if (emailScore < 0.6) {
+    next({
+      status: 401,
+      message: `El correo electrónico no es válido (score bajo) ${req.body.email} ${emailScore}`,
+    });
+  }
   addUserDB(req.body)
     .then((response) => {
       req.response = response;
