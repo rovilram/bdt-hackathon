@@ -3,8 +3,6 @@ const passport = require('passport');
 const { addUser } = require('../api/user/controller');
 const authMiddleware = require('../middlewares/authMiddleware');
 
-const apiRoutes = require('./apiRoutes');
-
 const router = Router();
 
 // test endpoint
@@ -20,12 +18,6 @@ router.route('/register').post(addUser, authMiddleware);
 Description: Guarda la sesión usando una estratégia local y envía la información al usuario */
 router.post('/login', authMiddleware);
 
-/* 
-ST12 post /notification
-Descripción: Envía un mensaje de notificación standar al usuario utilizando el config del TASK6 */
-router.route('/notification').post((req, res) => {
-  res.send('Enviando mensaje');
-});
 
 router.get('/testauth', (req, res, next) => {
   if (req.isAuthenticated())

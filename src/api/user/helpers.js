@@ -13,8 +13,17 @@ exports.addUserDB = async (userData) => {
 
 exports.getUserDB = async (id) => {
   try {
-    console.log(id);
     const result = await User.findOne({ id }, { _id: 0, password: 0, __v: 0 });
+    return result;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+exports.getUserByUsername = async (username) => {
+  try {
+    const result = await User.findOne({ username }, { _id: 0, password: 0, __v: 0 });
     return result;
   } catch (error) {
     throw error;

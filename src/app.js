@@ -36,26 +36,23 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Public endpoints
-app.use('/', apiRoutes);
+app.use('/', routes);
 
 // Private endpoints
 app.use(
   '/',
-  /* (req, res, next) => {
+  (req, res, next) => {
     if (req.isAuthenticated()) next();
     else {
-      console.log(req.headers);
       console.log('error de autentiacion');
       next({
         status: 404,
         message: 'no estás logeado',
       });
     }
-  }, */
-  routes,
+  },
+  apiRoutes,
 );
-
-
 
 app.use(notFound404);
 app.use(errorMiddleware);
