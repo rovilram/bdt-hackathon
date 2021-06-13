@@ -2,11 +2,15 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+const { MONGO_DB_URI, MONGO_DB_URI_TEST, NODE_ENV } = process.env;
+
 const DB_URI = process.env.DB_URI || 'mongodb://localhost/test';
+
+const connectionString = NODE_ENV === 'test' ? `${DB_URI}-test` : DB_URI;
 
 //  conectamos a la base de datos una sola vez y esa misma conexión se reutilizará
 mongoose
-  .connect(DB_URI, {
+  .connect(connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

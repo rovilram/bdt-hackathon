@@ -26,8 +26,7 @@ router.get('/testauth', (req, res, next) => {
       message: 'Usuario está autenticado',
     });
   else {
-    console.log(req.headers);
-    console.log('error de autentiacion');
+    console.log('error de autenticacion');
     next({
       status: 404,
       message: 'usuario no autenticado',

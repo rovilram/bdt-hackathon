@@ -58,7 +58,6 @@ exports.updateUser = async (req, res, next) => {
 
   updateUserDB(id, req.body)
     .then((response) => {
-      console.log(response);
       if (response) {
         res.send({
           OK: 1,
@@ -84,7 +83,6 @@ exports.delUser = async (req, res, next) => {
   const { id } = req.params;
   delUserDB(id)
     .then((response) => {
-      console.log(response);
       if (response) {
         res.send({
           OK: 1,

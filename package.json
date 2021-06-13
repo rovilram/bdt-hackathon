@@ -2,14 +2,14 @@
   "name": "bdt-hackathon",
   "version": "1.0.0",
   "description": "",
-  "main": "www/index.js",
+  "main": "src/bin/www.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "start": "NODE_ENV=production node src/bin/www.js",
     "dev": "NODE_ENV=development nodemon main",
-    "test": "NODE_ENV=test jest  --verbose --detectOpenHandles ",
+    "test": "NODE_ENV=test jest   --verbose --detectOpenHandles ",
     "test:watch": "npm run test -- --watch "
   },
   "repository": {

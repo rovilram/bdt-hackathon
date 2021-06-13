@@ -2,8 +2,21 @@ const mongoose = require('../app/database');
 const app = require('../app');
 const server = require('../bin/www');
 const supertest = require('supertest');
+const User = require('../api/user/model');
+const UserGithub = require('../api/githubUser/model');
+const UserGitlab = require('../api/gitlabUser/model');
+const Country = require('../api/country/model');
 
 const api = supertest(app);
+
+let cookie;
+
+beforeAll(async () => {
+  await User.deleteMany({});
+  await UserGithub.deleteMany({});
+  await UserGitlab.deleteMany({});
+  await Country.deleteMany({});
+});
 
 test('server is running', async () => {
   await api.get('/').expect(200);
@@ -14,21 +27,41 @@ test('404 error if endpoint no exists', async () => {
 });
 
 describe('Auth endpoints are working', () => {
-  test('login endpoint is working', async () => {
-    await api.post('/login').expect(200);
-  });
-
   test('register endpoint is working', async () => {
-    await api.post('/register').expect(200);
+    await api
+      .post('/register')
+      .send({
+        username: 'testUser',
+        password: 'Aa#00000',
+        email: 'testUser@gmail.com',
+      })
+      .expect(200);
+  });
+  test('login endpoint is working', async () => {
+    await api
+      .post('/login')
+      .send({
+        username: 'testUser',
+        password: 'Aa#00000',
+      })
+      .expect(200);
   });
 });
 
 describe('User endpoints are working', () => {
   test('get user endpoint', async () => {
+    const loginResponse = await api.post('/login').send({
+      username: 'testUser',
+      password: 'Aa#00000',
+    });
+
+    const cookie = loginResponse.headers['set-cookie'];
+
+    console.log("cookie", cookie);
+
     const id = 100;
 
-
-    await api.get(`/user/${id}`).expect(200);
+    await api.get(`/user/${id}`).set('Cookie', cookie).expect(200);
   });
 
   test('delete user endpoint', async () => {

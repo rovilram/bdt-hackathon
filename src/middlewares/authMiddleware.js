@@ -13,7 +13,6 @@ const authMiddleware = (req, res, next) => {
       req.logIn(user, (err) => {
         if (err) throw err;
         res.send({ OK: 1, message: 'Usuario logeado' });
-        console.log(req.user);
       });
     }
   })(req, res, next);
