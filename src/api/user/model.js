@@ -2,6 +2,7 @@ const mongoose = require('../../app/database');
 const SHA256 = require('crypto-js/sha256');
 const { nanoid } = require('nanoid');
 const validateEmail = require('../../utils/validateEmail');
+const Country = require('../country/model');
 
 const userSchema = new mongoose.Schema({
   id: {
@@ -39,7 +40,14 @@ const userSchema = new mongoose.Schema({
     type: Number,
   },
   countryID: {
-    type: Number,
+    type: String,
+    validate: (countryID) => {
+      return new Promise(function (resolve, reject) {
+        Country.findOne({ id: countryID }, (err, cat) =>
+          resolve(cat ? true : false),
+        );
+      });
+    },
   },
 });
 
