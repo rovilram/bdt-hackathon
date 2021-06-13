@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "26620d0e-6280-448a-a661-a5eb50593344",
+		"name": "bdt-hackathon LOCALHOST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "ST1: GET /user/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/user/ru4LBz11m1rdycuP1ra_Y",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"ru4LBz11m1rdycuP1ra_Y"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ST2: DELETE /user/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/user/myYPblYvUR5tBFWfLa8fC",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"myYPblYvUR5tBFWfLa8fC"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ST3: PUT /user/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Robergtdddo\",\n    \"username\": \"rovilram\",\n    \"email\": \"roberto@rovilram.es\",\n    \"isEmailVerified\": false,\n    \"password\": \"Aa#00000\",\n    \"githubUserId\": 25556,\n    \"gitLabUserId\": 55566,\n    \"countryID\": 55\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/gg4arrQJv0pWTLmfqt_YW",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"gg4arrQJv0pWTLmfqt_YW"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ST4: POST /user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"rvi\",\n    \"username\": \"rovdisdlram222w3\",\n    \"email\": \"coldmeat@gmail.com\",\n    \"isEmailVerified\": true,\n    \"password\": \"Aa#00000\",\n    \"githubUserId\": 25556,\n    \"gitLabUserId\": 55566,\n    \"countryID\": 55\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ST6: GET /user/:id/github",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Robergto\",\n    \"username\": \"rovilram\",\n    \"email\": \"roberto@rovilram.es\",\n    \"isEmailVerified\": true,\n    \"password\": \"Aa#00000\",\n    \"githubUserId\": 25556,\n    \"gitLabUserId\": 55566,\n    \"countryID\": 55\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/ru4LBz11m1rdycuP1ra_Y/github",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"ru4LBz11m1rdycuP1ra_Y",
+								"github"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ST6: GET /user/:id/gitlab",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Robergto\",\n    \"username\": \"rovilram\",\n    \"email\": \"roberto@rovilram.es\",\n    \"isEmailVerified\": true,\n    \"password\": \"Aa#00000\",\n    \"githubUserId\": 25556,\n    \"gitLabUserId\": 55566,\n    \"countryID\": 55\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/OuwVXvv0bWQHfJc7Be89d/gitlab",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"OuwVXvv0bWQHfJc7Be89d",
+								"gitlab"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "github",
+			"item": [
+				{
+					"name": "ST7: POST /github/:username",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"ru4LBz11m1rdycuP1ra_Y\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/github/rovilram",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"github",
+								"rovilram"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gitlab",
+			"item": [
+				{
+					"name": "ST7: POST /gitlab/:username",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"OuwVXvv0bWQHfJc7Be89d\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/gitlab/doctormo",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gitlab",
+								"doctormo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "countries",
+			"item": [
+				{
+					"name": "ST9: GET /countries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/countries",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ST10: POST /register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Roswbwsd3er2dto\",\n    \"username\": \"rov3swgi2gddlra\",\n    \"email\": \"rsobs3er2wto@altan.com\",\n    \"isEmailVerified\": true,\n    \"password\": \"Aa#00000\",\n    \"githubUserId\": 25556,\n    \"gitLabUserId\": 55566,\n    \"countryID\": \"ESP\"\n}   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ST10: POST /login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"rovilram\",\n    \"password\": \"Aa#00000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/testauth",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/testauth",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"testauth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ST12 GET /notification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"rovdisdlram222w3\",\n    \"message\": \"esto es un mensaje muy bonito de prueba\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/notification",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"notification"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
