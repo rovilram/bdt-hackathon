@@ -18,8 +18,6 @@ exports.addGitlabUser = async (req, res, next) => {
 
     const repositories = reposResponse.data.map((repo) => repo.id);
 
-    console.log(userResponse);
-
     const userGitLab = {
       id: userResponse.data[0].id,
       username: userResponse.data[0].username,

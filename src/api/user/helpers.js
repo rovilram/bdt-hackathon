@@ -2,7 +2,6 @@ const User = require('./model');
 
 exports.addUserDB = async (userData) => {
   const newUser = new User(userData);
-  console.log(newUser);
   try {
     const result = await newUser.save();
     return result;
@@ -59,7 +58,6 @@ exports.updateUserDB = async (id, userData) => {
 
 
 exports.addGithubToUser = async (id, idGitHub) => {
-  console.log(id, idGitHub);
   const options = {
     new: true,
     projection: { _id: 0, password: 0, __v: 0 },
@@ -81,7 +79,6 @@ exports.addGithubToUser = async (id, idGitHub) => {
 
 
 exports.addGitlabToUser = async (id, idGitlab) => {
-  console.log(id, idGitlab);
   const options = {
     new: true,
     projection: { _id: 0, password: 0, __v: 0 },

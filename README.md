@@ -106,4 +106,4 @@ Se implementa tanto para correo real (gmail), como para un fake-smpt-server como
 Para instalar la apliación hay que hacer los siguientes pasos:
 * Clonar el repositorio: ```git clone https://github.com/rovilram/bdt-hackathon```
 * Instalar las librerías necesarias: ```npm install```
-* Lanzar la aplicación: ```npm start```
+* Lanzar la aplicación: ```npm start```cs

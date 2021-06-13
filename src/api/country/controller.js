@@ -4,7 +4,7 @@ exports.getCountries = (req, res, next) => {
   const response = getCountriesDB().catch((error) => {
     next({ OK: 0, status: 500, message: `Error: ${error}` });
   });
-
+  console.log("paises", response)
   if (response.length)
     res.send({
       OK: 1,
