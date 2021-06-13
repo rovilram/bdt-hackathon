@@ -14,6 +14,14 @@ const passport = require('./app/passport');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const notFound404 = require('./middlewares/notFound404');
 
+
+// cada vez que arrancamos el servidor vamos a borrar todos los paises y los volvemos a cargar desde la API
+const {updateCountries} = require('./helpers/updateCountries')
+updateCountries();
+
+
+
+
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
@@ -34,7 +42,6 @@ app.use(cookieParser(secretKey));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 
 
 // Public endpoints

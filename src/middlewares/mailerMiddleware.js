@@ -1,6 +1,6 @@
 const { getUserByUsername } = require('../api/user/helpers');
 
-const { mailer } = require('../app/mailer');
+const { mailer } = require('../helpers/mailer');
 
 const mailerMiddleware = async (req, res, next) => {
   const { username, message } = req.body;

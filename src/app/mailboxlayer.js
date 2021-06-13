@@ -8,6 +8,3 @@ exports.mailboxlayer = async (email) => {
   return response.data.score;
 };
 
-/* const { mailboxlayer } = require('./app/mailboxlayer');
-
-console.log(mailboxlayer('coldmeat@gmail.com')); */

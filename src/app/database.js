@@ -15,7 +15,8 @@ mongoose
   .then(() => {
     console.info('Connected to DB!', DB_URI);
   })
-  .catch((err) => console.error('DB conection error:', err));
+  .catch((err) => console.error('DB conection error:', err));  
+
 
 //  desconecta la base de datos cuando salimos de node con ctrl+c
 process.on('SIGINT', () => {
